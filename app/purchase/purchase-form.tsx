@@ -200,19 +200,15 @@ export function PurchaseForm({ planSlug }: { planSlug?: string }) {
             <div className="qr-stack">
               <div className="payment-qr-frame">
                 <Image
-                  alt="付款二维码占位图"
+                  alt="付款二维码"
                   className="payment-qr-image"
                   height={280}
                   priority
-                  src="/payment-qr-placeholder.svg"
+                  src="/payment-qr.jpeg"
                   width={280}
                 />
               </div>
-              <p className="payment-hint">
-                当前显示的是站内占位收款码。上线前请把
-                <code>/public/payment-qr-placeholder.svg</code>
-                替换为你的真实收款二维码图片。
-              </p>
+              <p className="payment-hint">请使用微信扫码支付，付款后保留截图，客服会根据订单信息尽快处理。</p>
             </div>
 
             {submitted ? (
