@@ -317,6 +317,25 @@ ul {
   letter-spacing: -0.05em;
 }
 
+.price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.price-wrap.compact {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.price-original {
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-decoration: line-through;
+}
+
 .plan-card ul {
   padding-left: 18px;
   color: var(--muted);
@@ -401,6 +420,200 @@ ul {
   gap: 14px;
 }
 
+.purchase-shell {
+  padding-bottom: 72px;
+}
+
+.purchase-page {
+  padding-top: 44px;
+}
+
+.purchase-hero {
+  max-width: 780px;
+  padding: 40px 0 28px;
+}
+
+.purchase-hero h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.purchase-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.purchase-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.purchase-form,
+.purchase-sidebar {
+  padding: 28px;
+}
+
+.purchase-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.purchase-card-head h2,
+.order-result-copy h3,
+.order-placeholder h3 {
+  margin: 0;
+  font-size: 1.55rem;
+}
+
+.purchase-badge,
+.purchase-status {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 0.92rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.selected-plan,
+.purchase-summary,
+.order-result,
+.order-placeholder {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.selected-plan {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.selected-plan p,
+.payment-hint,
+.order-result-copy p,
+.order-placeholder p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.purchase-price {
+  font-size: 2rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.field span {
+  font-weight: 700;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(27, 23, 18, 0.16);
+  border-radius: 16px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+  font: inherit;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(203, 93, 47, 0.45);
+  box-shadow: 0 0 0 4px rgba(203, 93, 47, 0.08);
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.purchase-summary {
+  display: grid;
+  gap: 10px;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.muted-row {
+  color: var(--muted);
+}
+
+.qr-stack {
+  margin-top: 18px;
+}
+
+.payment-qr-frame,
+.generated-qr {
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+}
+
+.payment-qr-image {
+  width: min(100%, 280px);
+  height: auto;
+  border-radius: 18px;
+}
+
+.payment-hint {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.payment-hint code {
+  margin: 0 4px;
+}
+
+.order-result,
+.order-placeholder {
+  margin-top: 18px;
+}
+
+.order-result {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 18px;
+  align-items: center;
+}
+
 .fade-up {
   opacity: 0;
   transform: translateY(22px);
@@ -439,7 +652,10 @@ ul {
   .timeline,
   .review-grid,
   .benefit-grid,
-  .cta {
+  .cta,
+  .purchase-grid,
+  .field-row,
+  .order-result {
     grid-template-columns: 1fr;
   }
 
@@ -488,5 +704,13 @@ ul {
 
   .metric-grid {
     grid-template-columns: 1fr;
+  }
+
+  .selected-plan {
+    flex-direction: column;
+  }
+
+  .price-wrap.compact {
+    align-items: flex-start;
   }
 }

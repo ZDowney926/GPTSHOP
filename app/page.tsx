@@ -1,29 +1,4 @@
-const plans = [
-  {
-    name: "首次开通协助",
-    tier: "基础版",
-    price: "¥128",
-    cta: "选择基础版",
-    featured: false,
-    items: ["适合首次尝试订阅", "开通路径说明", "一次状态跟进", "标准工单响应"],
-  },
-  {
-    name: "Plus 完整代开通",
-    tier: "推荐",
-    price: "¥188",
-    cta: "选择推荐套餐",
-    featured: true,
-    items: ["代处理关键开通环节", "异常状态排查", "续费节点提醒", "优先响应"],
-  },
-  {
-    name: "开通 + 续费协助",
-    tier: "进阶版",
-    price: "¥268",
-    cta: "选择进阶版",
-    featured: false,
-    items: ["适合长期使用者", "包含后续续费协助", "双次状态跟进", "更高优先级支持"],
-  },
-];
+import { plans } from "@/lib/plans";
 
 const benefits = [
   {
@@ -190,7 +165,12 @@ export default function Home() {
               >
                 <span className="tag">{plan.tier}</span>
                 <h3>{plan.name}</h3>
-                <p className="price">{plan.price}</p>
+                <div className="price-wrap">
+                  <p className="price">¥{plan.price}</p>
+                  {plan.originalPrice ? (
+                    <p className="price-original">原价 ¥{plan.originalPrice}</p>
+                  ) : null}
+                </div>
                 <ul>
                   {plan.items.map((item) => (
                     <li key={item}>{item}</li>
@@ -198,7 +178,7 @@ export default function Home() {
                 </ul>
                 <a
                   className={`button ${plan.featured ? "button-primary" : "button-secondary"}`}
-                  href="#contact"
+                  href={`/purchase?plan=${plan.slug}`}
                 >
                   {plan.cta}
                 </a>
@@ -281,8 +261,8 @@ export default function Home() {
             <p>把品牌名、套餐、联系方式与支付说明替换为你的真实业务信息，这个页面就能直接作为着陆页使用。</p>
           </div>
           <div className="cta-actions">
-            <a className="button button-primary" href="mailto:hello@gptshop.pro">
-              邮箱联系
+            <a className="button button-primary" href="/purchase?plan=plus-complete">
+              立即充值
             </a>
             <a
               className="button button-ghost"
