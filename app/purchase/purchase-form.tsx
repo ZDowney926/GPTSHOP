@@ -64,7 +64,7 @@ export function PurchaseForm({ planSlug }: { planSlug?: string }) {
   return (
     <div className="site-shell purchase-shell">
       <header className="topbar fade-up">
-        <Link className="brand" href="/">
+        <Link className="brand" href="/plus-price">
           <span className="brand-mark">GP</span>
           <span className="brand-copy">
             <strong>GPTShop Pro</strong>
@@ -72,7 +72,7 @@ export function PurchaseForm({ planSlug }: { planSlug?: string }) {
           </span>
         </Link>
         <nav className="nav">
-          <Link href="/">返回首页</Link>
+          <Link href="/plus-price">返回套餐选择</Link>
           <a href="#payment">付款二维码</a>
         </nav>
       </header>

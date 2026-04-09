@@ -54,13 +54,13 @@ const advantages = [
 const flowSteps = [
   {
     step: "步骤 1",
-    title: "选择套餐并提交订单",
-    description: "进入购买页，填写联系人与 ChatGPT 账号信息。",
+    title: "先选择适合你的套餐",
+    description: "进入套餐选择页，选择 Plus 充值或成品账号。",
   },
   {
     step: "步骤 2",
-    title: "扫码完成支付",
-    description: "使用页面提供的微信收款码付款，并保留付款截图。",
+    title: "提交订单并扫码支付",
+    description: "进入购买页填写信息后，使用页面提供的微信收款码付款。",
   },
   {
     step: "步骤 3",
@@ -131,7 +131,7 @@ const faqs = [
   {
     question: "没有海外信用卡可以完成充值吗？",
     answer:
-      "可以。当前站点主流程就是面向没有海外卡的用户设计，直接在购买页扫码支付即可。",
+      "可以。当前站点主流程就是面向没有海外卡的用户设计，先选择套餐，再进入购买页扫码支付即可。",
   },
   {
     question: "支持哪些账号场景？",
@@ -159,8 +159,8 @@ const footerColumns = [
   {
     title: "服务",
     links: [
-      { label: "ChatGPT Plus 充值", href: "/purchase?plan=plus-recharge" },
-      { label: "ChatGPT 成品账号", href: "/purchase?plan=ready-account" },
+      { label: "ChatGPT Plus 充值", href: "/plus-price#plan-plus-recharge" },
+      { label: "ChatGPT 成品账号", href: "/plus-price#plan-ready-account" },
       { label: "ChatGPT Pro 咨询", href: "#service-contact" },
     ],
   },
@@ -366,7 +366,7 @@ export default function Home() {
           <div className="home-utility-links">
             <a href="#home-faq">常见问题</a>
             <a href="#home-flow">升级教程</a>
-            <a href="/purchase?plan=plus-recharge">查询订单</a>
+            <a href="/plus-price">套餐选择</a>
           </div>
         </div>
       </header>
@@ -391,7 +391,7 @@ export default function Home() {
             </p>
 
             <div className="home-hero-actions">
-              <a className="home-primary-cta" href="/purchase?plan=plus-recharge">
+              <a className="home-primary-cta" href="/plus-price#plan-plus-recharge">
                 立即充值
                 <ArrowRightIcon />
               </a>
