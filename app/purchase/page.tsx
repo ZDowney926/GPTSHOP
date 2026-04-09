@@ -3,7 +3,7 @@ import { PurchaseForm } from "./purchase-form";
 
 export const metadata: Metadata = {
   title: "ChatGPT Plus 代充值 | GPTShop Pro",
-  description: "分步骤完成下单、扫码支付和升级信息提交的购买页。",
+  description: "支付宝自动建单、扫码支付并轮询支付状态的购买页。",
 };
 
 export default async function PurchasePage({

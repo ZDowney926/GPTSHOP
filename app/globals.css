@@ -3921,6 +3921,12 @@ ul {
   cursor: pointer;
 }
 
+.purchase-primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
 .purchase-secondary-button,
 .purchase-secondary-link {
   border: 1px solid #d1d5db;
@@ -3961,6 +3967,14 @@ ul {
 
 .purchase-helper-card.is-success {
   background: #f8fafc;
+}
+
+.purchase-helper-card.is-error {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 0.88rem;
+  line-height: 1.7;
 }
 
 .purchase-feature-grid {
@@ -4054,10 +4068,10 @@ ul {
   font-weight: 700;
 }
 
-.purchase-channel-badge.is-wechat {
-  border: 1px solid #bbf7d0;
-  background: #f0fdf4;
-  color: #15803d;
+.purchase-channel-badge.is-alipay {
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #2563eb;
 }
 
 .purchase-channel-frame {
@@ -4065,8 +4079,8 @@ ul {
   padding: 26px;
 }
 
-.purchase-channel-frame.is-wechat {
-  background: linear-gradient(135deg, #16a34a, #15803d);
+.purchase-channel-frame.is-alipay {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
 }
 
 .purchase-channel-logo {
@@ -4111,7 +4125,7 @@ ul {
 .purchase-payment-meta strong {
   display: inline-block;
   margin-left: 8px;
-  color: #16a34a;
+  color: #2563eb;
   font-size: 1.1rem;
 }
 
@@ -4152,6 +4166,57 @@ ul {
   line-height: 1.7;
 }
 
+.purchase-status-panel {
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background: #fff;
+  padding: 18px;
+}
+
+.purchase-status-panel p {
+  margin-top: 12px;
+  color: #4b5563;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.purchase-status-panel.is-pending,
+.purchase-status-chip.is-pending {
+  border-color: #c7d2fe;
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.purchase-status-panel.is-paid,
+.purchase-status-chip.is-paid {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.purchase-status-panel.is-closed,
+.purchase-status-chip.is-closed,
+.purchase-status-panel.is-expired,
+.purchase-status-chip.is-expired,
+.purchase-status-panel.is-failed,
+.purchase-status-chip.is-failed {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.purchase-status-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0 14px;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
 .purchase-payment-actions {
   display: flex;
   flex-wrap: wrap;
@@ -4160,6 +4225,17 @@ ul {
 
 .purchase-payment-actions > * {
   flex: 1 1 220px;
+}
+
+.purchase-payment-footnote {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+.purchase-payment-footnote p {
+  color: #6b7280;
+  font-size: 0.84rem;
+  line-height: 1.8;
 }
 
 .purchase-upgrade-side,
