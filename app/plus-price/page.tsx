@@ -53,34 +53,12 @@ const footerColumns = [
     title: "帮助中心",
     links: [
       { label: "返回首页", href: "/" },
-      { label: "常见问题", href: "/#home-faq" },
-      { label: "升级流程", href: "/#home-flow" },
+      { label: "常见问题", href: "/faq" },
+      { label: "升级流程", href: "/guide" },
+      { label: "订单查询", href: "/order" },
     ],
   },
 ];
-
-function ArrowRightIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M5 12h14"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
-      <path
-        d="m12 5 7 7-7 7"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
-    </svg>
-  );
-}
 
 function CheckIcon() {
   return (
@@ -130,8 +108,9 @@ export default function PlusPricePage() {
 
           <nav className="pricing-nav" aria-label="套餐页导航">
             <Link href="/">首页</Link>
-            <Link href="/#home-faq">常见问题</Link>
-            <Link href="/#home-flow">升级教程</Link>
+            <Link href="/faq">常见问题</Link>
+            <Link href="/guide">升级教程</Link>
+            <Link href="/order">查询订单</Link>
           </nav>
 
           <Link className="pricing-order-link" href="#plan-compare">
@@ -342,14 +321,14 @@ export default function PlusPricePage() {
             </div>
           </div>
 
-          <div className="pricing-footer-bottom">
-            <span>© 2025-2026 GPTShop Pro. All rights reserved.</span>
-            <div className="pricing-footer-legal">
-              <Link href="/">首页</Link>
-              <Link href="/#home-faq">常见问题</Link>
-              <Link href="/#home-flow">升级流程</Link>
+            <div className="pricing-footer-bottom">
+              <span>© 2025-2026 GPTShop Pro. All rights reserved.</span>
+              <div className="pricing-footer-legal">
+                <Link href="/">首页</Link>
+                <Link href="/privacy">隐私政策</Link>
+                <Link href="/terms">服务条款</Link>
+              </div>
             </div>
-          </div>
         </div>
       </footer>
 

@@ -161,15 +161,15 @@ const footerColumns = [
     links: [
       { label: "ChatGPT Plus 充值", href: "/plus-price#plan-plus-recharge" },
       { label: "ChatGPT 成品账号", href: "/plus-price#plan-ready-account" },
-      { label: "ChatGPT Pro 咨询", href: "#service-contact" },
+      { label: "ChatGPT Pro 页面", href: "/gptpro" },
     ],
   },
   {
     title: "帮助与支持",
     links: [
-      { label: "充值流程", href: "#home-flow" },
-      { label: "常见问题", href: "#home-faq" },
-      { label: "视频教程", href: "#home-video" },
+      { label: "升级教程", href: "/guide" },
+      { label: "常见问题", href: "/faq" },
+      { label: "Blog", href: "/blog" },
     ],
   },
 ];
@@ -364,9 +364,9 @@ export default function Home() {
           </nav>
 
           <div className="home-utility-links">
-            <a href="#home-faq">常见问题</a>
-            <a href="#home-flow">升级教程</a>
-            <a href="/plus-price">套餐选择</a>
+            <a href="/faq">常见问题</a>
+            <a href="/guide">升级教程</a>
+            <a href="/order">查询订单</a>
           </div>
         </div>
       </header>
@@ -395,9 +395,9 @@ export default function Home() {
                 立即充值
                 <ArrowRightIcon />
               </a>
-              <a className="home-secondary-link" href="#service-contact">
+              <a className="home-secondary-link" href="/gptpro">
                 <span className="home-secondary-badge">Pro</span>
-                也支持 ChatGPT Pro 咨询
+                也支持 ChatGPT Pro 页面
                 <ArrowRightIcon />
               </a>
             </div>
