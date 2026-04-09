@@ -99,7 +99,7 @@ export function PurchaseForm({ planSlug }: { planSlug?: string }) {
             <div className="selected-plan">
               <div>
                 <strong>{selectedPlan.name}</strong>
-                <p>人工协助开通，提交后进入支付步骤。</p>
+                <p>提交订单信息后进入支付步骤，客服将按订单内容继续处理。</p>
               </div>
               <div className="price-wrap compact">
                 <strong className="purchase-price">¥{selectedPlan.price}</strong>

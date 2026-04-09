@@ -42,7 +42,7 @@ export const plans: Plan[] = [
   },
 ];
 
-export const defaultPlan = plans[1];
+export const defaultPlan = plans[0];
 
 export function getPlanBySlug(slug?: string | null) {
   return plans.find((plan) => plan.slug === slug) ?? defaultPlan;
