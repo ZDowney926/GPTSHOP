@@ -19,6 +19,10 @@ function readText(name: string) {
   return process.env[name]?.trim() ?? "";
 }
 
+function normalizeOrigin(value: string) {
+  return value.replace(/\/+$/, "");
+}
+
 function hasCertificateConfig() {
   return Boolean(readSecret("ALIPAY_APP_CERT") && readSecret("ALIPAY_PUBLIC_CERT") && readSecret("ALIPAY_ROOT_CERT"));
 }
@@ -29,6 +33,24 @@ function hasKeyConfig() {
 
 export function isAlipayConfigured() {
   return Boolean(readText("ALIPAY_APP_ID") && readSecret("ALIPAY_PRIVATE_KEY") && (hasCertificateConfig() || hasKeyConfig()));
+}
+
+export function getAlipayMissingConfig() {
+  const missing: string[] = [];
+
+  if (!readText("ALIPAY_APP_ID")) {
+    missing.push("ALIPAY_APP_ID");
+  }
+
+  if (!readSecret("ALIPAY_PRIVATE_KEY")) {
+    missing.push("ALIPAY_PRIVATE_KEY");
+  }
+
+  if (!hasKeyConfig() && !hasCertificateConfig()) {
+    missing.push("ALIPAY_PUBLIC_KEY 或证书三件套");
+  }
+
+  return missing;
 }
 
 export function getOrderTimeoutMinutes() {
@@ -45,13 +67,13 @@ export function getSiteOrigin() {
   const configuredOrigin = readText("APP_BASE_URL") || readText("NEXT_PUBLIC_SITE_URL");
 
   if (configuredOrigin) {
-    return configuredOrigin.startsWith("http") ? configuredOrigin : `https://${configuredOrigin}`;
+    return normalizeOrigin(configuredOrigin.startsWith("http") ? configuredOrigin : `https://${configuredOrigin}`);
   }
 
   const vercelUrl = readText("VERCEL_URL");
 
   if (vercelUrl) {
-    return vercelUrl.startsWith("http") ? vercelUrl : `https://${vercelUrl}`;
+    return normalizeOrigin(vercelUrl.startsWith("http") ? vercelUrl : `https://${vercelUrl}`);
   }
 
   return "http://localhost:3000";
@@ -89,7 +111,8 @@ export function getAlipaySdk() {
   }
 
   const gateway = readText("ALIPAY_GATEWAY") || DEFAULT_GATEWAY;
-  const keyType = readText("ALIPAY_KEY_TYPE") === "PKCS8" ? "PKCS8" : "PKCS1";
+  const rawKeyType = readText("ALIPAY_KEY_TYPE").toUpperCase();
+  const keyType = rawKeyType === "PKCS1" ? "PKCS1" : "PKCS8";
 
   if (hasCertificateConfig()) {
     cachedSdk = new AlipaySdk({

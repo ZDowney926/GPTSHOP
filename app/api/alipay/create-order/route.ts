@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import {
   createAlipayOrderNumber,
   getAlipayNotifyUrl,
+  getAlipayMissingConfig,
   getAlipaySdk,
   getOrderTimeoutMinutes,
   isAlipayConfigured,
@@ -25,8 +26,7 @@ export async function POST(request: Request) {
   if (!isAlipayConfigured()) {
     return NextResponse.json(
       {
-        error:
-          "支付宝支付尚未完成配置。请先在环境变量中设置 ALIPAY_APP_ID、ALIPAY_PRIVATE_KEY，以及支付宝公钥或证书。",
+        error: `支付宝支付尚未完成配置，缺少：${getAlipayMissingConfig().join("、")}。请在 Vercel 环境变量中补齐后重新部署。`,
       },
       { status: 500 },
     );

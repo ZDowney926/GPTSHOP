@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "ChatGPT Plus 充值服务 | GPTShop Pro",
   description:
-    "ChatGPT Plus 充值服务，支持微信支付与人工协助处理。首页结构参考高转化 AI 会员充值站点重做，并保留后续扩展 Claude、Gemini、Grok 模块的导航位。",
+    "ChatGPT Plus 充值服务，支持支付宝支付与人工协助处理。首页结构参考高转化 AI 会员充值站点重做，并保留后续扩展 Claude、Gemini、Grok 模块的导航位。",
 };
 
 const moduleTabs = [
@@ -24,7 +24,7 @@ const quickPoints = [
   },
   {
     title: "支付便捷",
-    description: "支持微信扫码付款，流程简洁，适合国内用户。",
+    description: "支持支付宝扫码付款，流程简洁，适合国内用户。",
   },
 ];
 
@@ -60,7 +60,7 @@ const flowSteps = [
   {
     step: "步骤 2",
     title: "提交订单并扫码支付",
-    description: "进入购买页填写信息后，使用页面提供的微信收款码付款。",
+    description: "进入购买页填写信息后，使用支付宝动态二维码完成付款。",
   },
   {
     step: "步骤 3",
@@ -507,7 +507,7 @@ export default function Home() {
                   <h3>订单信息</h3>
                   <ul>
                     <li>套餐：ChatGPT Plus 充值</li>
-                    <li>支付：微信扫码</li>
+                    <li>支付：支付宝扫码</li>
                     <li>提交：联系人 + 账号邮箱</li>
                   </ul>
                 </div>

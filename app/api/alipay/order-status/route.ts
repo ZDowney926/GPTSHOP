@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAlipaySdk, isAlipayConfigured } from "@/lib/alipay";
+import { getAlipayMissingConfig, getAlipaySdk, isAlipayConfigured } from "@/lib/alipay";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -24,7 +24,10 @@ function getErrorMessage(error: unknown) {
 
 export async function GET(request: NextRequest) {
   if (!isAlipayConfigured()) {
-    return NextResponse.json({ error: "支付宝支付尚未完成配置。" }, { status: 500 });
+    return NextResponse.json(
+      { error: `支付宝支付尚未完成配置，缺少：${getAlipayMissingConfig().join("、")}。` },
+      { status: 500 },
+    );
   }
 
   const outTradeNo = request.nextUrl.searchParams.get("outTradeNo")?.trim();

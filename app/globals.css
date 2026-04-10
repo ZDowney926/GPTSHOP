@@ -77,9 +77,11 @@ ul {
   width: 44px;
   height: 44px;
   border-radius: 14px;
+  overflow: hidden;
+  background: #fff url("/g-app-icon-512.png") center/cover no-repeat;
+  color: transparent;
+  font-size: 0;
   font-weight: 800;
-  color: #fff;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
 }
 
 .brand-copy {
@@ -763,8 +765,10 @@ ul {
   height: 40px;
   place-items: center;
   border-radius: 14px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  color: #fff;
+  overflow: hidden;
+  background: #fff url("/g-app-icon-512.png") center/cover no-repeat;
+  color: transparent;
+  font-size: 0;
   font-weight: 800;
   box-shadow: 0 10px 24px rgba(79, 70, 229, 0.25);
 }
@@ -2155,8 +2159,10 @@ ul {
   height: 40px;
   place-items: center;
   border-radius: 14px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  color: #fff;
+  overflow: hidden;
+  background: #fff url("/g-app-icon-512.png") center/cover no-repeat;
+  color: transparent;
+  font-size: 0;
   font-weight: 800;
   box-shadow: 0 10px 24px rgba(79, 70, 229, 0.25);
 }
@@ -2994,8 +3000,10 @@ ul {
   height: 40px;
   place-items: center;
   border-radius: 14px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
-  color: #fff;
+  overflow: hidden;
+  background: #fff url("/g-app-icon-512.png") center/cover no-repeat;
+  color: transparent;
+  font-size: 0;
   font-weight: 800;
   box-shadow: 0 10px 24px rgba(79, 70, 229, 0.25);
 }
@@ -3534,21 +3542,81 @@ ul {
 }
 
 .purchase-shell {
-  padding-bottom: 80px;
+  position: relative;
+  width: min(calc(100% - 32px), 1280px);
+  min-height: 100vh;
+  padding-bottom: 96px;
+}
+
+.purchase-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(99, 102, 241, 0.12), transparent 32%),
+    radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.1), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 48%, #f8fafc 100%);
 }
 
 .purchase-page {
-  padding-top: 28px;
+  padding-top: 44px;
+}
+
+.purchase-shell .topbar {
+  margin-top: 18px;
+  border-color: #e2e8f0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.purchase-shell .brand-mark {
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.2);
+}
+
+.purchase-shell .brand-copy strong {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.06rem;
+  line-height: 1;
+}
+
+.purchase-shell .brand-copy small,
+.purchase-shell .nav {
+  color: #94a3b8;
+}
+
+.purchase-shell .nav a:hover,
+.purchase-shell .purchase-back-link:hover,
+.purchase-shell .purchase-back-button:hover {
+  color: #4f46e5;
 }
 
 .purchase-flow-card {
+  position: relative;
+  overflow: hidden;
   width: min(100%, 960px);
   margin: 0 auto;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 32px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
-  padding: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.94));
+  backdrop-filter: blur(18px);
+  box-shadow: 0 22px 52px rgba(15, 23, 42, 0.08);
+  padding: 30px;
+}
+
+.purchase-flow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 160px;
+  background: radial-gradient(circle at top center, rgba(99, 102, 241, 0.08), transparent 70%);
+  pointer-events: none;
 }
 
 .purchase-back-row {
@@ -3761,9 +3829,10 @@ ul {
 .purchase-upgrade-side,
 .purchase-complete-card,
 .purchase-complete-side {
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 20px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
 }
 
 .purchase-details {
@@ -3774,7 +3843,7 @@ ul {
   cursor: pointer;
   list-style: none;
   padding: 16px 18px;
-  background: #f9fafb;
+  background: linear-gradient(180deg, #f8fafc, #f1f5f9);
   color: #374151;
   font-size: 0.92rem;
   font-weight: 600;
@@ -3890,7 +3959,7 @@ ul {
 .purchase-price-highlight {
   margin-top: 14px;
   border-radius: 14px;
-  background: #eef2ff;
+  background: linear-gradient(135deg, #eef2ff, #e0f2fe);
   padding: 10px 12px;
   color: #4f46e5;
   font-size: 0.78rem;
@@ -3917,7 +3986,7 @@ ul {
   border: 0;
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
   color: #fff;
-  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.22);
+  box-shadow: 0 16px 30px rgba(79, 70, 229, 0.24);
   cursor: pointer;
 }
 
@@ -4080,7 +4149,9 @@ ul {
 }
 
 .purchase-channel-frame.is-alipay {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.22), transparent 32%),
+    linear-gradient(135deg, #4f46e5, #2563eb);
 }
 
 .purchase-channel-logo {
@@ -4159,7 +4230,7 @@ ul {
 }
 
 .purchase-payment-tip {
-  background: #eef2ff;
+  background: linear-gradient(135deg, #eef2ff, #e0f2fe);
   color: #4f46e5;
   font-size: 0.88rem;
   font-weight: 700;
